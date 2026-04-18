@@ -44,6 +44,7 @@ namespace Task_Manager
             if(textBox1.Text.Trim()!="" && textBox1.Text!= "Type Your Task Here...")
             {
                 checkedListBox1.Items.Add(textBox1.Text.Trim());
+                lblPendingTasks.Text=checkedListBox1.Items.Count.ToString();
                 textBox1.Text = "Type Your Task Here...";
             }
         }
@@ -57,6 +58,8 @@ namespace Task_Manager
                     checkedListBox2.Items.Add(checkedListBox1.Items[i]);
                     checkedListBox2.SetItemChecked(checkedListBox2.Items.Count - 1, true);
                     checkedListBox1.Items.RemoveAt(i);
+                    lblPendingTasks.Text = checkedListBox1.Items.Count.ToString();
+
                     i--;
 
                     lblCompletedTasks.Tag = (Convert.ToInt16(lblCompletedTasks.Tag) + 1).ToString();
@@ -80,10 +83,12 @@ namespace Task_Manager
 
         private void button2_Click(object sender, EventArgs e)
         {
+            lblPendingTasks.Text = "0";
             for (int i = checkedListBox1.Items.Count-1; i >=0; i--)
             {
 
                 checkedListBox1.Items.RemoveAt(i);
+
 
             }
         }
@@ -95,6 +100,7 @@ namespace Task_Manager
                 if (checkedListBox1.GetSelected(i))
                 {
                     checkedListBox1.Items.RemoveAt(i);
+                    lblPendingTasks.Text=checkedListBox1.Items.Count.ToString();
                 }
             }
         }
