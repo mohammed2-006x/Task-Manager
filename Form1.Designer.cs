@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -44,6 +45,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lblPendingTasks = new System.Windows.Forms.Label();
             this.dtTask = new System.Windows.Forms.DateTimePicker();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -173,7 +175,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.Lime;
             this.button1.Font = new System.Drawing.Font("Trebuchet MS", 18F);
-            this.button1.Location = new System.Drawing.Point(72, 596);
+            this.button1.Location = new System.Drawing.Point(8, 570);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(159, 46);
             this.button1.TabIndex = 12;
@@ -185,7 +187,7 @@
             // 
             this.button2.BackColor = System.Drawing.Color.Red;
             this.button2.Font = new System.Drawing.Font("Trebuchet MS", 18F);
-            this.button2.Location = new System.Drawing.Point(305, 596);
+            this.button2.Location = new System.Drawing.Point(243, 570);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(159, 46);
             this.button2.TabIndex = 13;
@@ -197,7 +199,7 @@
             // 
             this.button3.BackColor = System.Drawing.Color.Blue;
             this.button3.Font = new System.Drawing.Font("Trebuchet MS", 18F);
-            this.button3.Location = new System.Drawing.Point(538, 596);
+            this.button3.Location = new System.Drawing.Point(478, 570);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(159, 46);
             this.button3.TabIndex = 14;
@@ -245,10 +247,17 @@
             this.dtTask.TabIndex = 18;
             this.dtTask.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 500;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Task_Manager.Properties.Resources.istockphoto_947365206_170667a;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1126, 676);
             this.Controls.Add(this.dtTask);
@@ -297,6 +306,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblPendingTasks;
         private System.Windows.Forms.DateTimePicker dtTask;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

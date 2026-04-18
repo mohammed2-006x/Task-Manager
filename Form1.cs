@@ -126,5 +126,46 @@ namespace Task_Manager
             dtTask.MinDate = DateTime.Now;
             dtTask.Checked = false;
         }
+
+        int ChangeColor = 1;
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if(ChangeColor==1)
+            {
+                label1.BackColor = Color.Red;
+                label1.ForeColor = Color.DarkBlue;
+            }
+            if(ChangeColor==2)
+            {
+                label1.BackColor = Color.Black;
+                label1.ForeColor = Color.Red;
+            }
+            if(ChangeColor==3)
+            {
+                label1.BackColor = Color.Brown;
+                label1.ForeColor = Color.Purple;
+
+            }
+            if (ChangeColor==4)
+            {
+                label1.BackColor = Color.Blue;
+                label1.ForeColor = Color.Pink;
+
+            }
+            if (ChangeColor==5)
+            {
+                label1.BackColor = Color.DarkSeaGreen;
+                label1.ForeColor = Color.SkyBlue;
+
+            }
+            ChangeColor++;
+
+            if (ChangeColor == 6)
+            {
+                ChangeColor = 1;
+            }
+
+        }
     }
 }
