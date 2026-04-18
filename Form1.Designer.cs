@@ -43,6 +43,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.lblPendingTasks = new System.Windows.Forms.Label();
+            this.dtTask = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -75,7 +76,7 @@
             // 
             this.textBox1.Font = new System.Drawing.Font("Trebuchet MS", 20F);
             this.textBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.textBox1.Location = new System.Drawing.Point(66, 91);
+            this.textBox1.Location = new System.Drawing.Point(8, 92);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(551, 38);
             this.textBox1.TabIndex = 6;
@@ -92,7 +93,7 @@
             this.btnAddTask.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Fuchsia;
             this.btnAddTask.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddTask.Font = new System.Drawing.Font("Trebuchet MS", 26F);
-            this.btnAddTask.Location = new System.Drawing.Point(623, 91);
+            this.btnAddTask.Location = new System.Drawing.Point(565, 92);
             this.btnAddTask.Name = "btnAddTask";
             this.btnAddTask.Size = new System.Drawing.Size(68, 55);
             this.btnAddTask.TabIndex = 7;
@@ -104,13 +105,13 @@
             // 
             this.checkedListBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.checkedListBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.checkedListBox1.Font = new System.Drawing.Font("Tahoma", 20F);
+            this.checkedListBox1.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkedListBox1.ForeColor = System.Drawing.Color.Cornsilk;
             this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(66, 153);
+            this.checkedListBox1.Location = new System.Drawing.Point(12, 158);
             this.checkedListBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(625, 387);
+            this.checkedListBox1.Size = new System.Drawing.Size(626, 366);
             this.checkedListBox1.Sorted = true;
             this.checkedListBox1.TabIndex = 4;
             this.checkedListBox1.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
@@ -120,13 +121,13 @@
             this.checkedListBox2.BackColor = System.Drawing.Color.Black;
             this.checkedListBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.checkedListBox2.Enabled = false;
-            this.checkedListBox2.Font = new System.Drawing.Font("Tahoma", 20F, System.Drawing.FontStyle.Strikeout);
+            this.checkedListBox2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Strikeout);
             this.checkedListBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(0)))), ((int)(((byte)(250)))));
             this.checkedListBox2.FormattingEnabled = true;
-            this.checkedListBox2.Location = new System.Drawing.Point(697, 153);
+            this.checkedListBox2.Location = new System.Drawing.Point(679, 158);
             this.checkedListBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.checkedListBox2.Name = "checkedListBox2";
-            this.checkedListBox2.Size = new System.Drawing.Size(353, 387);
+            this.checkedListBox2.Size = new System.Drawing.Size(435, 354);
             this.checkedListBox2.TabIndex = 8;
             // 
             // label1
@@ -148,7 +149,7 @@
             this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label2.Font = new System.Drawing.Font("Trebuchet MS", 26F);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(0)))), ((int)(((byte)(250)))));
-            this.label2.Location = new System.Drawing.Point(743, 546);
+            this.label2.Location = new System.Drawing.Point(743, 512);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(214, 43);
             this.label2.TabIndex = 10;
@@ -161,7 +162,7 @@
             this.lblCompletedTasks.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblCompletedTasks.Font = new System.Drawing.Font("Trebuchet MS", 26F);
             this.lblCompletedTasks.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(0)))), ((int)(((byte)(250)))));
-            this.lblCompletedTasks.Location = new System.Drawing.Point(958, 546);
+            this.lblCompletedTasks.Location = new System.Drawing.Point(958, 512);
             this.lblCompletedTasks.Name = "lblCompletedTasks";
             this.lblCompletedTasks.Size = new System.Drawing.Size(37, 43);
             this.lblCompletedTasks.TabIndex = 11;
@@ -211,7 +212,7 @@
             this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label3.Font = new System.Drawing.Font("Trebuchet MS", 26F);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(0)))), ((int)(((byte)(250)))));
-            this.label3.Location = new System.Drawing.Point(212, 544);
+            this.label3.Location = new System.Drawing.Point(61, 524);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(166, 43);
             this.label3.TabIndex = 15;
@@ -224,20 +225,33 @@
             this.lblPendingTasks.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblPendingTasks.Font = new System.Drawing.Font("Trebuchet MS", 26F);
             this.lblPendingTasks.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(0)))), ((int)(((byte)(250)))));
-            this.lblPendingTasks.Location = new System.Drawing.Point(379, 544);
+            this.lblPendingTasks.Location = new System.Drawing.Point(227, 524);
             this.lblPendingTasks.Name = "lblPendingTasks";
             this.lblPendingTasks.Size = new System.Drawing.Size(37, 43);
             this.lblPendingTasks.TabIndex = 16;
             this.lblPendingTasks.Tag = "0";
             this.lblPendingTasks.Text = "0";
             // 
+            // dtTask
+            // 
+            this.dtTask.CalendarFont = new System.Drawing.Font("Tw Cen MT Condensed", 20F, System.Drawing.FontStyle.Bold);
+            this.dtTask.Checked = false;
+            this.dtTask.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtTask.Location = new System.Drawing.Point(232, 70);
+            this.dtTask.Name = "dtTask";
+            this.dtTask.ShowCheckBox = true;
+            this.dtTask.ShowUpDown = true;
+            this.dtTask.Size = new System.Drawing.Size(327, 20);
+            this.dtTask.TabIndex = 18;
+            this.dtTask.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Task_Manager.Properties.Resources.istockphoto_947365206_170667a;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1126, 676);
+            this.Controls.Add(this.dtTask);
             this.Controls.Add(this.lblPendingTasks);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button3);
@@ -259,6 +273,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
             this.Text = " Task Manager";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
@@ -281,6 +296,7 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblPendingTasks;
+        private System.Windows.Forms.DateTimePicker dtTask;
     }
 }
 

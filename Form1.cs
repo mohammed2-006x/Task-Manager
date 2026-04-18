@@ -21,17 +21,17 @@ namespace Task_Manager
 
         private void textBox1_MouseEnter(object sender, EventArgs e)
         {
-          
-            if(textBox1.Text== "Type Your Task Here...")
-            textBox1.Text = "";
+
+            if (textBox1.Text == "Type Your Task Here...")
+                textBox1.Text = "";
         }
 
         private void textBox1_MouseLeave(object sender, EventArgs e)
         {
-            textBox1.Text= textBox1.Text.TrimStart();
+            textBox1.Text = textBox1.Text.TrimStart();
 
 
-            if (textBox1.Text =="")
+            if (textBox1.Text == "")
             {
                 checkedListBox1.Focus();
                 textBox1.Text = "Type Your Task Here...";
@@ -40,13 +40,24 @@ namespace Task_Manager
 
         private void btnAddTask_Click(object sender, EventArgs e)
         {
-            
-            if(textBox1.Text.Trim()!="" && textBox1.Text!= "Type Your Task Here...")
+
+            if (textBox1.Text.Trim() != "" && textBox1.Text != "Type Your Task Here...")
             {
-                checkedListBox1.Items.Add(textBox1.Text.Trim());
-                lblPendingTasks.Text=checkedListBox1.Items.Count.ToString();
-                textBox1.Text = "Type Your Task Here...";
+                if (!dtTask.Checked)
+                {
+                    MessageBox.Show("Please enter the Date For Task");
+                }
+                else
+                {
+                    checkedListBox1.Items.Add(textBox1.Text.Trim()+"            "+dtTask.Text);
+                    lblPendingTasks.Text = checkedListBox1.Items.Count.ToString();
+                    textBox1.Text = "Type Your Task Here...";
+                    dtTask.Checked = false;
+                }
             }
+
+
+
         }
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -63,7 +74,7 @@ namespace Task_Manager
                     i--;
 
                     lblCompletedTasks.Tag = (Convert.ToInt16(lblCompletedTasks.Tag) + 1).ToString();
-                    lblCompletedTasks.Text=lblCompletedTasks.Tag.ToString();
+                    lblCompletedTasks.Text = lblCompletedTasks.Tag.ToString();
 
                 }
 
@@ -76,7 +87,7 @@ namespace Task_Manager
             {
 
                 checkedListBox1.SetItemChecked(i, true);
-              
+
             }
             checkedListBox1_SelectedIndexChanged(checkedListBox1, e);
         }
@@ -84,7 +95,7 @@ namespace Task_Manager
         private void button2_Click(object sender, EventArgs e)
         {
             lblPendingTasks.Text = "0";
-            for (int i = checkedListBox1.Items.Count-1; i >=0; i--)
+            for (int i = checkedListBox1.Items.Count - 1; i >= 0; i--)
             {
 
                 checkedListBox1.Items.RemoveAt(i);
@@ -95,14 +106,25 @@ namespace Task_Manager
 
         private void button3_Click(object sender, EventArgs e)
         {
-            for(int i=0;i<checkedListBox1.Items.Count;i++)
+            for (int i = 0; i < checkedListBox1.Items.Count; i++)
             {
                 if (checkedListBox1.GetSelected(i))
                 {
                     checkedListBox1.Items.RemoveAt(i);
-                    lblPendingTasks.Text=checkedListBox1.Items.Count.ToString();
+                    lblPendingTasks.Text = checkedListBox1.Items.Count.ToString();
                 }
             }
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            dtTask.MinDate = DateTime.Now;
+            dtTask.Checked = false;
         }
     }
 }
