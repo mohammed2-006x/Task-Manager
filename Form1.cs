@@ -45,7 +45,7 @@ namespace Task_Manager
             {
                 if (!dtTask.Checked)
                 {
-                    MessageBox.Show("Please enter the Date For Task");
+                    MessageBox.Show("Please enter the date of task");
                 }
                 else
                 {
