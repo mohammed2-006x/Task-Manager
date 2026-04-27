@@ -46,6 +46,8 @@
             this.lblPendingTasks = new System.Windows.Forms.Label();
             this.dtTask = new System.Windows.Forms.DateTimePicker();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.button4 = new System.Windows.Forms.Button();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -80,7 +82,7 @@
             this.textBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.textBox1.Location = new System.Drawing.Point(8, 92);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(551, 38);
+            this.textBox1.Size = new System.Drawing.Size(551, 46);
             this.textBox1.TabIndex = 6;
             this.textBox1.Text = "Type Your Task Here...";
             this.textBox1.MouseEnter += new System.EventHandler(this.textBox1_MouseEnter);
@@ -113,7 +115,7 @@
             this.checkedListBox1.Location = new System.Drawing.Point(12, 158);
             this.checkedListBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(626, 366);
+            this.checkedListBox1.Size = new System.Drawing.Size(626, 342);
             this.checkedListBox1.Sorted = true;
             this.checkedListBox1.TabIndex = 4;
             this.checkedListBox1.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
@@ -129,7 +131,7 @@
             this.checkedListBox2.Location = new System.Drawing.Point(679, 158);
             this.checkedListBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.checkedListBox2.Name = "checkedListBox2";
-            this.checkedListBox2.Size = new System.Drawing.Size(435, 354);
+            this.checkedListBox2.Size = new System.Drawing.Size(435, 353);
             this.checkedListBox2.TabIndex = 8;
             // 
             // label1
@@ -140,7 +142,7 @@
             this.label1.Font = new System.Drawing.Font("Trebuchet MS", 26F);
             this.label1.Location = new System.Drawing.Point(735, 111);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(280, 43);
+            this.label1.Size = new System.Drawing.Size(353, 55);
             this.label1.TabIndex = 9;
             this.label1.Text = "Completed Tasks";
             // 
@@ -153,7 +155,7 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(0)))), ((int)(((byte)(250)))));
             this.label2.Location = new System.Drawing.Point(743, 512);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(214, 43);
+            this.label2.Size = new System.Drawing.Size(268, 55);
             this.label2.TabIndex = 10;
             this.label2.Text = "Completed :";
             // 
@@ -166,7 +168,7 @@
             this.lblCompletedTasks.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(0)))), ((int)(((byte)(250)))));
             this.lblCompletedTasks.Location = new System.Drawing.Point(958, 512);
             this.lblCompletedTasks.Name = "lblCompletedTasks";
-            this.lblCompletedTasks.Size = new System.Drawing.Size(37, 43);
+            this.lblCompletedTasks.Size = new System.Drawing.Size(47, 55);
             this.lblCompletedTasks.TabIndex = 11;
             this.lblCompletedTasks.Tag = "0";
             this.lblCompletedTasks.Text = "0";
@@ -216,7 +218,7 @@
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(0)))), ((int)(((byte)(250)))));
             this.label3.Location = new System.Drawing.Point(61, 524);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(166, 43);
+            this.label3.Size = new System.Drawing.Size(208, 55);
             this.label3.TabIndex = 15;
             this.label3.Text = "Pending :";
             // 
@@ -229,7 +231,7 @@
             this.lblPendingTasks.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(0)))), ((int)(((byte)(250)))));
             this.lblPendingTasks.Location = new System.Drawing.Point(227, 524);
             this.lblPendingTasks.Name = "lblPendingTasks";
-            this.lblPendingTasks.Size = new System.Drawing.Size(37, 43);
+            this.lblPendingTasks.Size = new System.Drawing.Size(47, 55);
             this.lblPendingTasks.TabIndex = 16;
             this.lblPendingTasks.Tag = "0";
             this.lblPendingTasks.Text = "0";
@@ -242,8 +244,7 @@
             this.dtTask.Location = new System.Drawing.Point(232, 70);
             this.dtTask.Name = "dtTask";
             this.dtTask.ShowCheckBox = true;
-            this.dtTask.ShowUpDown = true;
-            this.dtTask.Size = new System.Drawing.Size(327, 20);
+            this.dtTask.Size = new System.Drawing.Size(327, 23);
             this.dtTask.TabIndex = 18;
             this.dtTask.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
             // 
@@ -253,13 +254,29 @@
             this.timer1.Interval = 500;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.Red;
+            this.button4.Location = new System.Drawing.Point(1017, 512);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 59);
+            this.button4.TabIndex = 19;
+            this.button4.Text = " Delete";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Task_Manager.Properties.Resources.istockphoto_947365206_170667a;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1126, 676);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.dtTask);
             this.Controls.Add(this.lblPendingTasks);
             this.Controls.Add(this.label3);
@@ -307,6 +324,8 @@
         private System.Windows.Forms.Label lblPendingTasks;
         private System.Windows.Forms.DateTimePicker dtTask;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }
 

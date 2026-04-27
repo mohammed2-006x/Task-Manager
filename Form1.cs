@@ -67,6 +67,11 @@ namespace Task_Manager
                 if (checkedListBox1.GetItemChecked(i))
                 {
                     checkedListBox2.Items.Add(checkedListBox1.Items[i]);
+                    notifyIcon1.Icon = SystemIcons.Information;
+                    notifyIcon1.BalloonTipIcon= ToolTipIcon.Info;
+                    notifyIcon1.BalloonTipTitle = "Task Completed";
+                    notifyIcon1.BalloonTipText = "Task : "+ checkedListBox1.Items[i].ToString()+" Completed";
+                    notifyIcon1.ShowBalloonTip(1000);
                     checkedListBox2.SetItemChecked(checkedListBox2.Items.Count - 1, true);
                     checkedListBox1.Items.RemoveAt(i);
                     lblPendingTasks.Text = checkedListBox1.Items.Count.ToString();
@@ -166,6 +171,13 @@ namespace Task_Manager
                 ChangeColor = 1;
             }
 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+           checkedListBox2.Items.Clear();
+            lblCompletedTasks.Text = "0";
+            lblCompletedTasks.Tag = "0";
         }
     }
 }
