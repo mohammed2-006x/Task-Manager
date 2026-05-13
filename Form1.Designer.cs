@@ -48,6 +48,9 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.button4 = new System.Windows.Forms.Button();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.label4 = new System.Windows.Forms.Label();
+            this.ProgressBarCompletedTasks = new System.Windows.Forms.ProgressBar();
+            this.lblProgressBarLevel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -115,7 +118,7 @@
             this.checkedListBox1.Location = new System.Drawing.Point(12, 158);
             this.checkedListBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(626, 342);
+            this.checkedListBox1.Size = new System.Drawing.Size(626, 308);
             this.checkedListBox1.Sorted = true;
             this.checkedListBox1.TabIndex = 4;
             this.checkedListBox1.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
@@ -128,10 +131,10 @@
             this.checkedListBox2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Strikeout);
             this.checkedListBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(0)))), ((int)(((byte)(250)))));
             this.checkedListBox2.FormattingEnabled = true;
-            this.checkedListBox2.Location = new System.Drawing.Point(679, 158);
+            this.checkedListBox2.Location = new System.Drawing.Point(678, 158);
             this.checkedListBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.checkedListBox2.Name = "checkedListBox2";
-            this.checkedListBox2.Size = new System.Drawing.Size(435, 353);
+            this.checkedListBox2.Size = new System.Drawing.Size(435, 326);
             this.checkedListBox2.TabIndex = 8;
             // 
             // label1
@@ -153,7 +156,7 @@
             this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label2.Font = new System.Drawing.Font("Trebuchet MS", 26F);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(0)))), ((int)(((byte)(250)))));
-            this.label2.Location = new System.Drawing.Point(743, 512);
+            this.label2.Location = new System.Drawing.Point(679, 489);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(268, 55);
             this.label2.TabIndex = 10;
@@ -166,7 +169,7 @@
             this.lblCompletedTasks.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblCompletedTasks.Font = new System.Drawing.Font("Trebuchet MS", 26F);
             this.lblCompletedTasks.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(0)))), ((int)(((byte)(250)))));
-            this.lblCompletedTasks.Location = new System.Drawing.Point(958, 512);
+            this.lblCompletedTasks.Location = new System.Drawing.Point(881, 489);
             this.lblCompletedTasks.Name = "lblCompletedTasks";
             this.lblCompletedTasks.Size = new System.Drawing.Size(47, 55);
             this.lblCompletedTasks.TabIndex = 11;
@@ -177,7 +180,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.Lime;
             this.button1.Font = new System.Drawing.Font("Trebuchet MS", 18F);
-            this.button1.Location = new System.Drawing.Point(8, 570);
+            this.button1.Location = new System.Drawing.Point(14, 609);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(159, 46);
             this.button1.TabIndex = 12;
@@ -189,7 +192,7 @@
             // 
             this.button2.BackColor = System.Drawing.Color.Red;
             this.button2.Font = new System.Drawing.Font("Trebuchet MS", 18F);
-            this.button2.Location = new System.Drawing.Point(243, 570);
+            this.button2.Location = new System.Drawing.Point(232, 609);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(159, 46);
             this.button2.TabIndex = 13;
@@ -201,7 +204,7 @@
             // 
             this.button3.BackColor = System.Drawing.Color.Blue;
             this.button3.Font = new System.Drawing.Font("Trebuchet MS", 18F);
-            this.button3.Location = new System.Drawing.Point(478, 570);
+            this.button3.Location = new System.Drawing.Point(474, 609);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(159, 46);
             this.button3.TabIndex = 14;
@@ -216,7 +219,7 @@
             this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label3.Font = new System.Drawing.Font("Trebuchet MS", 26F);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(0)))), ((int)(((byte)(250)))));
-            this.label3.Location = new System.Drawing.Point(61, 524);
+            this.label3.Location = new System.Drawing.Point(12, 495);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(208, 55);
             this.label3.TabIndex = 15;
@@ -229,7 +232,7 @@
             this.lblPendingTasks.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblPendingTasks.Font = new System.Drawing.Font("Trebuchet MS", 26F);
             this.lblPendingTasks.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(0)))), ((int)(((byte)(250)))));
-            this.lblPendingTasks.Location = new System.Drawing.Point(227, 524);
+            this.lblPendingTasks.Location = new System.Drawing.Point(170, 495);
             this.lblPendingTasks.Name = "lblPendingTasks";
             this.lblPendingTasks.Size = new System.Drawing.Size(47, 55);
             this.lblPendingTasks.TabIndex = 16;
@@ -257,7 +260,7 @@
             // button4
             // 
             this.button4.BackColor = System.Drawing.Color.Red;
-            this.button4.Location = new System.Drawing.Point(1017, 512);
+            this.button4.Location = new System.Drawing.Point(1013, 519);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 59);
             this.button4.TabIndex = 19;
@@ -270,12 +273,51 @@
             this.notifyIcon1.Text = "notifyIcon1";
             this.notifyIcon1.Visible = true;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Black;
+            this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label4.Font = new System.Drawing.Font("Trebuchet MS", 26F);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(0)))), ((int)(((byte)(250)))));
+            this.label4.Location = new System.Drawing.Point(12, 554);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(268, 55);
+            this.label4.TabIndex = 20;
+            this.label4.Text = "Completed :";
+            // 
+            // ProgressBarCompletedTasks
+            // 
+            this.ProgressBarCompletedTasks.Location = new System.Drawing.Point(228, 554);
+            this.ProgressBarCompletedTasks.Name = "ProgressBarCompletedTasks";
+            this.ProgressBarCompletedTasks.Size = new System.Drawing.Size(350, 43);
+            this.ProgressBarCompletedTasks.TabIndex = 21;
+            this.ProgressBarCompletedTasks.Value = 100;
+            // 
+            // lblProgressBarLevel
+            // 
+            this.lblProgressBarLevel.AutoSize = true;
+            this.lblProgressBarLevel.BackColor = System.Drawing.Color.Black;
+            this.lblProgressBarLevel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblProgressBarLevel.Font = new System.Drawing.Font("Trebuchet MS", 26F);
+            this.lblProgressBarLevel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(0)))), ((int)(((byte)(250)))));
+            this.lblProgressBarLevel.Location = new System.Drawing.Point(580, 554);
+            this.lblProgressBarLevel.Name = "lblProgressBarLevel";
+            this.lblProgressBarLevel.Size = new System.Drawing.Size(119, 55);
+            this.lblProgressBarLevel.TabIndex = 22;
+            this.lblProgressBarLevel.Tag = "0";
+            this.lblProgressBarLevel.Text = "100%";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Task_Manager.Properties.Resources.istockphoto_947365206_170667a;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1126, 676);
+            this.ClientSize = new System.Drawing.Size(1212, 677);
+            this.Controls.Add(this.lblProgressBarLevel);
+            this.Controls.Add(this.ProgressBarCompletedTasks);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.dtTask);
             this.Controls.Add(this.lblPendingTasks);
@@ -326,6 +368,9 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ProgressBar ProgressBarCompletedTasks;
+        private System.Windows.Forms.Label lblProgressBarLevel;
     }
 }
 

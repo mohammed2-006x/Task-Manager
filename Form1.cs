@@ -53,6 +53,12 @@ namespace Task_Manager
                     lblPendingTasks.Text = checkedListBox1.Items.Count.ToString();
                     textBox1.Text = "Type Your Task Here...";
                     dtTask.Checked = false;
+
+                    ProgressBarCompletedTasks.Value=(int)(((double)(checkedListBox2.Items.Count))/(double)(checkedListBox1.Items.Count+checkedListBox2.Items.Count)*100);
+                    //ProgressBarCompletedTasks.Value=checkedListBox2.Items.Count;
+
+                   lblProgressBarLevel.Text=Convert.ToString((int)(((double)(checkedListBox2.Items.Count))/(double)(checkedListBox1.Items.Count+checkedListBox2.Items.Count)*100))+"%";
+
                 }
             }
 
@@ -81,6 +87,11 @@ namespace Task_Manager
                     lblCompletedTasks.Tag = (Convert.ToInt16(lblCompletedTasks.Tag) + 1).ToString();
                     lblCompletedTasks.Text = lblCompletedTasks.Tag.ToString();
 
+
+                    ProgressBarCompletedTasks.Value = (int)(((double)(checkedListBox2.Items.Count)) / (double)(checkedListBox1.Items.Count + checkedListBox2.Items.Count) * 100);
+                    lblProgressBarLevel.Text = Convert.ToString((int)(((double)(checkedListBox2.Items.Count)) / (double)(checkedListBox1.Items.Count + checkedListBox2.Items.Count) * 100)) + "%";
+
+
                 }
 
             }
@@ -104,6 +115,9 @@ namespace Task_Manager
             {
 
                 checkedListBox1.Items.RemoveAt(i);
+                ProgressBarCompletedTasks.Value = 100;
+                lblProgressBarLevel.Text = "100%";
+               
 
 
             }
@@ -117,6 +131,17 @@ namespace Task_Manager
                 {
                     checkedListBox1.Items.RemoveAt(i);
                     lblPendingTasks.Text = checkedListBox1.Items.Count.ToString();
+                    if (checkedListBox1.Items.Count != 0 || checkedListBox2.Items.Count != 0)
+                    {
+                        ProgressBarCompletedTasks.Value = (int)(((double)(checkedListBox2.Items.Count)) / (double)(checkedListBox1.Items.Count + checkedListBox2.Items.Count) * 100);
+                        lblProgressBarLevel.Text = Convert.ToString((int)(((double)(checkedListBox2.Items.Count)) / (double)(checkedListBox1.Items.Count + checkedListBox2.Items.Count) * 100)) + "%";
+                    }
+                    else
+                    {
+                        ProgressBarCompletedTasks.Value = 100;
+                        lblProgressBarLevel.Text = "100%";
+                    }
+
                 }
             }
         }
@@ -176,8 +201,11 @@ namespace Task_Manager
         private void button4_Click(object sender, EventArgs e)
         {
            checkedListBox2.Items.Clear();
+            
             lblCompletedTasks.Text = "0";
             lblCompletedTasks.Tag = "0";
+
+           
         }
     }
 }
